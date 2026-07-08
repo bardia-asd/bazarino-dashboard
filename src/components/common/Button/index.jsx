@@ -44,6 +44,12 @@ const buttonVariants = cva(
                 false: "",
             },
         },
+        defaultVariants: {
+            variant: "primary",
+            size: "md",
+            radius: "md",
+            fullWidth: false,
+        },
     },
 );
 
@@ -62,10 +68,10 @@ const Button = forwardRef(
     (
         {
             children,
-            variant = "primary",
-            size = "md",
-            radius = "md",
-            fullWidth = false,
+            variant,
+            size,
+            radius,
+            fullWidth,
             as: Component = "button",
             className = "",
             ...props

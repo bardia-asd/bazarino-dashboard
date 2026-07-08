@@ -2,6 +2,7 @@ import { Mail, Plus, Search } from "lucide-react";
 import Input from "./components/common/form/Input";
 import Label from "./components/common/form/Label";
 import Field from "./components/common/form/Field";
+import Textarea from "./components/common/form/Textarea";
 
 const App = () => {
     return (
@@ -28,13 +29,10 @@ const App = () => {
                     />
                 </Field>
 
-                <Input
-                    id="search"
-                    placeholder="you@example.com"
-                    size="lg"
-                    invalid
-                    startIcon={<Search size={16} />}
-                />
+                <Field>
+                    <Label htmlFor="note">توضیحات</Label>
+                    <Textarea id="note" rows={5}/>
+                </Field>
             </div>
         </div>
     );

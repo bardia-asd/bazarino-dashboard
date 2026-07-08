@@ -69,7 +69,6 @@ const Input = forwardRef(
             size,
             radius,
             invalid,
-            disabled = false,
             startIcon,
             endIcon,
             className = "",
@@ -89,7 +88,6 @@ const Input = forwardRef(
                 <input
                     ref={ref}
                     type={type}
-                    disabled={disabled}
                     // Only render aria-invalid when the input is invalid.
                     aria-invalid={invalid || undefined}
                     className={cn(
@@ -127,7 +125,6 @@ Input.propTypes = {
     size: PropTypes.oneOf(["sm", "md", "lg"]),
     radius: PropTypes.oneOf(["none", "sm", "md", "lg", "full"]),
     invalid: PropTypes.bool,
-    disabled: PropTypes.bool,
     startIcon: PropTypes.node,
     endIcon: PropTypes.node,
     className: PropTypes.string,
