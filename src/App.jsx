@@ -1,11 +1,12 @@
 import { Mail, Plus, Search } from "lucide-react";
-import Button from "./components/common/Button";
 import Input from "./components/common/form/Input";
+import Label from "./components/common/form/Label";
 
 const App = () => {
     return (
         <div className="min-h-screen font-vazirmatn text-foreground bg-background">
             <div className="p-5 space-y-8">
+                <Label>ایمیل:</Label>
                 <Input
                     id="disabled"
                     placeholder="you@example.com"
