@@ -11,7 +11,7 @@ import { cn } from "@/utils/cn";
  * manually concatenating Tailwind classes.
  */
 const buttonVariants = cva(
-    "inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium cursor-pointer transition-all duration-100 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 [&_svg]:shrink-0",
+    "inline-flex items-center justify-center gap-2 whitespace-nowrap font-medium cursor-pointer transition-all focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 [&_svg]:shrink-0 [&_svg]:pointer-events-none",
     {
         variants: {
             variant: {
