@@ -129,6 +129,137 @@
     --shadow-hover: 0 10px 30px rgba(0, 0, 0, 0.1);
     --shadow-dropdown: 0 20px 40px rgba(0, 0, 0, 0.12);
     --shadow-modal: 0 30px 60px rgba(0, 0, 0, 0.16);
+
+    /* Animate */
+    --animate-fade-in: fade-in 200ms ease-out;
+    --animate-fade-out: fade-out 150ms ease-in;
+
+    --animate-zoom-in: zoom-in 200ms ease-out;
+    --animate-zoom-out: zoom-out 150ms ease-in;
+
+    --animate-slide-up: slide-up 200ms ease-out;
+    --animate-slide-down: slide-down 200ms ease-out;
+
+    --animate-slide-left: slide-left 200ms ease-out;
+    --animate-slide-right: slide-right 200ms ease-out;
+
+    --animate-scale-in: scale-in 200ms ease-out;
+    --animate-scale-out: scale-out 150ms ease-in;
+}
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fade-out {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes zoom-in {
+    from {
+        opacity: 0;
+        transform: scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes zoom-out {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    to {
+        opacity: 0;
+        transform: scale(0.96);
+    }
+}
+
+@keyframes slide-up {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slide-down {
+    from {
+        opacity: 0;
+        transform: translateY(-12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slide-left {
+    from {
+        opacity: 0;
+        transform: translateX(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slide-right {
+    from {
+        opacity: 0;
+        transform: translateX(-12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes scale-in {
+    from {
+        opacity: 0;
+        transform: scale(0.92);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes scale-out {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    to {
+        opacity: 0;
+        transform: scale(0.92);
+    }
 }
 
 :root {
