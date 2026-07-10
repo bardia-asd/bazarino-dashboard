@@ -105,8 +105,6 @@ Button.displayName = "Button";
  */
 Button.propTypes = {
     children: PropTypes.node,
-
-    // Visual appearance.
     variant: PropTypes.oneOf([
         "primary",
         "secondary",
@@ -115,17 +113,9 @@ Button.propTypes = {
         "destructive",
         "link",
     ]),
-
-    // Button dimensions.
     size: PropTypes.oneOf(["sm", "md", "lg", "icon"]),
-
-    // Border radius options.
     radius: PropTypes.oneOf(["none", "sm", "md", "lg", "full"]),
-
-    // Render as another element (e.g. Link, a, div).
     as: PropTypes.elementType,
-
-    // Additional Tailwind or custom classes.
     className: PropTypes.string,
 };
 

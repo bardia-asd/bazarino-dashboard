@@ -354,3 +354,11 @@
     --sidebar-border: oklch(0.32 0.03 265);
     --sidebar-ring: oklch(0.66 0.2 12);
 }
+
+@layer base {
+    body {
+        background-color: var(--color-background);
+        color: var(--color-foreground);
+        font-family: var(--font-vazirmatn);
+    }
+}

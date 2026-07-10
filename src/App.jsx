@@ -1,47 +1,47 @@
 import {
-    Dialog,
-    DialogClose,
-    DialogContent,
-    DialogDescription,
-    DialogFooter,
-    DialogHeader,
-    DialogTitle,
-    DialogTrigger,
-} from "./components/common/Dialog";
+    AlertDialog,
+    AlertDialogTrigger,
+    AlertDialogContent,
+    AlertDialogHeader,
+    AlertDialogTitle,
+    AlertDialogDescription,
+    AlertDialogFooter,
+    AlertDialogCancel,
+    AlertDialogAction,
+} from "./components/common/AlertDialog";
+
 import Button from "./components/common/Button";
 
 const App = () => {
+    const handleDelete = () => {
+        console.log("آیتم حذف شد");
+    };
     return (
-        <div className="min-h-screen font-vazirmatn text-foreground bg-background p-5">
-            <Dialog>
-                <DialogTrigger asChild>
-                    <Button>باز کردن پنجره</Button>
-                </DialogTrigger>
+        <div className="p-5">
+            <AlertDialog>
+                <AlertDialogTrigger asChild>
+                    <Button variant="destructive">حذف تراکنش</Button>
+                </AlertDialogTrigger>
 
-                <DialogContent>
-                    <DialogHeader>
-                        <DialogTitle>ویرایش پروفایل</DialogTitle>
+                <AlertDialogContent dir="rtl">
+                    <AlertDialogHeader>
+                        <AlertDialogTitle>حذف تراکنش</AlertDialogTitle>
 
-                        <DialogDescription>
-                            اطلاعات پروفایل خود را از این بخش ویرایش کنید.
-                        </DialogDescription>
-                    </DialogHeader>
+                        <AlertDialogDescription>
+                            آیا از حذف این تراکنش مطمئن هستید؟ این عملیات قابل
+                            بازگشت نیست و اطلاعات برای همیشه حذف خواهد شد.
+                        </AlertDialogDescription>
+                    </AlertDialogHeader>
 
-                    <div className="py-4">
-                        <p className="text-sm text-muted-foreground">
-                            فرم یا محتوای موردنظر خود را در این قسمت قرار دهید.
-                        </p>
-                    </div>
+                    <AlertDialogFooter>
+                        <AlertDialogCancel>انصراف</AlertDialogCancel>
 
-                    <DialogFooter>
-                        <Button>ذخیره تغییرات</Button>
-
-                        <DialogClose asChild>
-                            <Button variant="outline">انصراف</Button>
-                        </DialogClose>
-                    </DialogFooter>
-                </DialogContent>
-            </Dialog>
+                        <AlertDialogAction onClick={handleDelete}>
+                            حذف
+                        </AlertDialogAction>
+                    </AlertDialogFooter>
+                </AlertDialogContent>
+            </AlertDialog>
         </div>
     );
 };
