@@ -1,47 +1,58 @@
 import {
-    AlertDialog,
-    AlertDialogTrigger,
-    AlertDialogContent,
-    AlertDialogHeader,
-    AlertDialogTitle,
-    AlertDialogDescription,
-    AlertDialogFooter,
-    AlertDialogCancel,
-    AlertDialogAction,
-} from "./components/common/AlertDialog";
-
+    Drawer,
+    DrawerClose,
+    DrawerContent,
+    DrawerDescription,
+    DrawerFooter,
+    DrawerHeader,
+    DrawerTitle,
+    DrawerTrigger,
+} from "./components/common/Drawer";
 import Button from "./components/common/Button";
 
 const App = () => {
-    const handleDelete = () => {
-        console.log("آیتم حذف شد");
-    };
     return (
         <div className="p-5">
-            <AlertDialog>
-                <AlertDialogTrigger asChild>
-                    <Button variant="destructive">حذف تراکنش</Button>
-                </AlertDialogTrigger>
+            <Drawer direction="left" shouldScaleBackground={false}>
+                <DrawerTrigger asChild>
+                    <Button>باز کردن منو</Button>
+                </DrawerTrigger>
 
-                <AlertDialogContent dir="rtl">
-                    <AlertDialogHeader>
-                        <AlertDialogTitle>حذف تراکنش</AlertDialogTitle>
+                <DrawerContent className=' max-w-sm sm:max-w-md border-r'>
+                    <DrawerHeader>
+                        <DrawerTitle>منوی اصلی</DrawerTitle>
 
-                        <AlertDialogDescription>
-                            آیا از حذف این تراکنش مطمئن هستید؟ این عملیات قابل
-                            بازگشت نیست و اطلاعات برای همیشه حذف خواهد شد.
-                        </AlertDialogDescription>
-                    </AlertDialogHeader>
+                        <DrawerDescription>
+                            از این بخش می‌توانید به صفحات مختلف برنامه دسترسی
+                            داشته باشید.
+                        </DrawerDescription>
+                    </DrawerHeader>
 
-                    <AlertDialogFooter>
-                        <AlertDialogCancel>انصراف</AlertDialogCancel>
+                    <nav className="mt-6 flex flex-col gap-2">
+                        <Button variant="ghost" className="justify-start">
+                            داشبورد
+                        </Button>
 
-                        <AlertDialogAction onClick={handleDelete}>
-                            حذف
-                        </AlertDialogAction>
-                    </AlertDialogFooter>
-                </AlertDialogContent>
-            </AlertDialog>
+                        <Button variant="ghost" className="justify-start">
+                            محصولات
+                        </Button>
+
+                        <Button variant="ghost" className="justify-start">
+                            سفارش‌ها
+                        </Button>
+
+                        <Button variant="ghost" className="justify-start">
+                            کاربران
+                        </Button>
+                    </nav>
+
+                    <DrawerFooter>
+                        <DrawerClose asChild>
+                            <Button variant="outline">بستن</Button>
+                        </DrawerClose>
+                    </DrawerFooter>
+                </DrawerContent>
+            </Drawer>
         </div>
     );
 };
