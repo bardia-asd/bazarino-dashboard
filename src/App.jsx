@@ -1,121 +1,50 @@
-import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuLabel,
-    DropdownMenuGroup,
-    DropdownMenuPortal,
-    DropdownMenuSeparator,
-    DropdownMenuSubTrigger,
-    DropdownMenuTrigger,
-    DropdownMenuShortcut,
-    DropdownMenuSub,
-    DropdownMenuSubContent,
-    DropdownMenuCheckboxItem,
-    DropdownMenuRadioGroup,
-    DropdownMenuRadioItem,
-} from "./components/common/DropdownMenu";
 import Button from "./components/common/Button";
 import { useState } from "react";
+import {
+    Select,
+    SelectContent,
+    SelectGroup,
+    SelectItem,
+    SelectLabel,
+    SelectSeparator,
+    SelectTrigger,
+    SelectValue,
+} from "./components/common/form/Select";
 
 const App = () => {
-    const [notification, setNotification] = useState(true);
-    const [theme, setTheme] = useState("dark");
+    const [value, setValue] = useState("");
 
     return (
         <div className="p-5 flex gap-10">
-            <DropdownMenu dir="rtl">
-                <DropdownMenuTrigger asChild>
-                    <Button>حساب کاربری</Button>
-                </DropdownMenuTrigger>
+            <Select value={value} onValueChange={setValue} dir="rtl">
+                <SelectTrigger className="w-64">
+                    <SelectValue placeholder="یک دسته‌بندی انتخاب کنید" />
+                </SelectTrigger>
 
-                <DropdownMenuContent>
-                    <DropdownMenuLabel>حساب من</DropdownMenuLabel>
+                <SelectContent>
+                    <SelectGroup>
+                        <SelectLabel>میوه‌ها</SelectLabel>
 
-                    <DropdownMenuSeparator />
+                        <SelectItem value="apple">سیب</SelectItem>
 
-                    <DropdownMenuGroup>
-                        <DropdownMenuItem>
-                            پروفایل
-                            <DropdownMenuShortcut>⌘P</DropdownMenuShortcut>
-                        </DropdownMenuItem>
+                        <SelectItem value="banana">موز</SelectItem>
 
-                        <DropdownMenuItem>
-                            تنظیمات
-                            <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
-                        </DropdownMenuItem>
-                    </DropdownMenuGroup>
+                        <SelectItem value="orange">پرتقال</SelectItem>
+                    </SelectGroup>
 
-                    <DropdownMenuSeparator />
+                    <SelectSeparator />
 
-                    <DropdownMenuItem>
-                        خروج
-                        <DropdownMenuShortcut>⌘Q</DropdownMenuShortcut>
-                    </DropdownMenuItem>
-                </DropdownMenuContent>
-            </DropdownMenu>
+                    <SelectGroup>
+                        <SelectLabel>نوشیدنی‌ها</SelectLabel>
 
-            <DropdownMenu dir="rtl">
-                <DropdownMenuTrigger asChild>
-                    <Button>تنظیمات</Button>
-                </DropdownMenuTrigger>
+                        <SelectItem value="coffee">قهوه</SelectItem>
 
-                <DropdownMenuContent>
-                    <DropdownMenuLabel>تنظیمات برنامه</DropdownMenuLabel>
+                        <SelectItem value="tea">چای</SelectItem>
 
-                    <DropdownMenuSeparator />
-
-                    <DropdownMenuCheckboxItem
-                        checked={notification}
-                        onCheckedChange={setNotification}>
-                        اعلان‌ها
-                    </DropdownMenuCheckboxItem>
-
-                    <DropdownMenuSeparator />
-
-                    <DropdownMenuRadioGroup
-                        value={theme}
-                        onValueChange={setTheme}>
-                        <DropdownMenuRadioItem value="light">
-                            روشن
-                        </DropdownMenuRadioItem>
-
-                        <DropdownMenuRadioItem value="dark">
-                            تیره
-                        </DropdownMenuRadioItem>
-
-                        <DropdownMenuRadioItem value="system">
-                            سیستم
-                        </DropdownMenuRadioItem>
-                    </DropdownMenuRadioGroup>
-                </DropdownMenuContent>
-            </DropdownMenu>
-
-            <DropdownMenu dir="rtl">
-                <DropdownMenuTrigger asChild>
-                    <Button>اشتراک‌گذاری</Button>
-                </DropdownMenuTrigger>
-
-                <DropdownMenuContent>
-                    <DropdownMenuItem>کپی لینک</DropdownMenuItem>
-
-                    <DropdownMenuSub>
-                        <DropdownMenuSubTrigger>
-                            اشتراک‌گذاری
-                        </DropdownMenuSubTrigger>
-
-                        <DropdownMenuPortal>
-                            <DropdownMenuSubContent>
-                                <DropdownMenuItem>تلگرام</DropdownMenuItem>
-
-                                <DropdownMenuItem>واتساپ</DropdownMenuItem>
-
-                                <DropdownMenuItem>ایمیل</DropdownMenuItem>
-                            </DropdownMenuSubContent>
-                        </DropdownMenuPortal>
-                    </DropdownMenuSub>
-                </DropdownMenuContent>
-            </DropdownMenu>
+                        <SelectItem value="juice">آبمیوه</SelectItem>
+                    </SelectGroup>
+                </SelectContent>
+            </Select>
         </div>
     );
 };
