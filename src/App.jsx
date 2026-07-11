@@ -1,58 +1,121 @@
 import {
-    Drawer,
-    DrawerClose,
-    DrawerContent,
-    DrawerDescription,
-    DrawerFooter,
-    DrawerHeader,
-    DrawerTitle,
-    DrawerTrigger,
-} from "./components/common/Drawer";
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuLabel,
+    DropdownMenuGroup,
+    DropdownMenuPortal,
+    DropdownMenuSeparator,
+    DropdownMenuSubTrigger,
+    DropdownMenuTrigger,
+    DropdownMenuShortcut,
+    DropdownMenuSub,
+    DropdownMenuSubContent,
+    DropdownMenuCheckboxItem,
+    DropdownMenuRadioGroup,
+    DropdownMenuRadioItem,
+} from "./components/common/DropdownMenu";
 import Button from "./components/common/Button";
+import { useState } from "react";
 
 const App = () => {
+    const [notification, setNotification] = useState(true);
+    const [theme, setTheme] = useState("dark");
+
     return (
-        <div className="p-5">
-            <Drawer direction="left" shouldScaleBackground={false}>
-                <DrawerTrigger asChild>
-                    <Button>باز کردن منو</Button>
-                </DrawerTrigger>
+        <div className="p-5 flex gap-10">
+            <DropdownMenu dir="rtl">
+                <DropdownMenuTrigger asChild>
+                    <Button>حساب کاربری</Button>
+                </DropdownMenuTrigger>
 
-                <DrawerContent className=' max-w-sm sm:max-w-md border-r'>
-                    <DrawerHeader>
-                        <DrawerTitle>منوی اصلی</DrawerTitle>
+                <DropdownMenuContent>
+                    <DropdownMenuLabel>حساب من</DropdownMenuLabel>
 
-                        <DrawerDescription>
-                            از این بخش می‌توانید به صفحات مختلف برنامه دسترسی
-                            داشته باشید.
-                        </DrawerDescription>
-                    </DrawerHeader>
+                    <DropdownMenuSeparator />
 
-                    <nav className="mt-6 flex flex-col gap-2">
-                        <Button variant="ghost" className="justify-start">
-                            داشبورد
-                        </Button>
+                    <DropdownMenuGroup>
+                        <DropdownMenuItem>
+                            پروفایل
+                            <DropdownMenuShortcut>⌘P</DropdownMenuShortcut>
+                        </DropdownMenuItem>
 
-                        <Button variant="ghost" className="justify-start">
-                            محصولات
-                        </Button>
+                        <DropdownMenuItem>
+                            تنظیمات
+                            <DropdownMenuShortcut>⌘S</DropdownMenuShortcut>
+                        </DropdownMenuItem>
+                    </DropdownMenuGroup>
 
-                        <Button variant="ghost" className="justify-start">
-                            سفارش‌ها
-                        </Button>
+                    <DropdownMenuSeparator />
 
-                        <Button variant="ghost" className="justify-start">
-                            کاربران
-                        </Button>
-                    </nav>
+                    <DropdownMenuItem>
+                        خروج
+                        <DropdownMenuShortcut>⌘Q</DropdownMenuShortcut>
+                    </DropdownMenuItem>
+                </DropdownMenuContent>
+            </DropdownMenu>
 
-                    <DrawerFooter>
-                        <DrawerClose asChild>
-                            <Button variant="outline">بستن</Button>
-                        </DrawerClose>
-                    </DrawerFooter>
-                </DrawerContent>
-            </Drawer>
+            <DropdownMenu dir="rtl">
+                <DropdownMenuTrigger asChild>
+                    <Button>تنظیمات</Button>
+                </DropdownMenuTrigger>
+
+                <DropdownMenuContent>
+                    <DropdownMenuLabel>تنظیمات برنامه</DropdownMenuLabel>
+
+                    <DropdownMenuSeparator />
+
+                    <DropdownMenuCheckboxItem
+                        checked={notification}
+                        onCheckedChange={setNotification}>
+                        اعلان‌ها
+                    </DropdownMenuCheckboxItem>
+
+                    <DropdownMenuSeparator />
+
+                    <DropdownMenuRadioGroup
+                        value={theme}
+                        onValueChange={setTheme}>
+                        <DropdownMenuRadioItem value="light">
+                            روشن
+                        </DropdownMenuRadioItem>
+
+                        <DropdownMenuRadioItem value="dark">
+                            تیره
+                        </DropdownMenuRadioItem>
+
+                        <DropdownMenuRadioItem value="system">
+                            سیستم
+                        </DropdownMenuRadioItem>
+                    </DropdownMenuRadioGroup>
+                </DropdownMenuContent>
+            </DropdownMenu>
+
+            <DropdownMenu dir="rtl">
+                <DropdownMenuTrigger asChild>
+                    <Button>اشتراک‌گذاری</Button>
+                </DropdownMenuTrigger>
+
+                <DropdownMenuContent>
+                    <DropdownMenuItem>کپی لینک</DropdownMenuItem>
+
+                    <DropdownMenuSub>
+                        <DropdownMenuSubTrigger>
+                            اشتراک‌گذاری
+                        </DropdownMenuSubTrigger>
+
+                        <DropdownMenuPortal>
+                            <DropdownMenuSubContent>
+                                <DropdownMenuItem>تلگرام</DropdownMenuItem>
+
+                                <DropdownMenuItem>واتساپ</DropdownMenuItem>
+
+                                <DropdownMenuItem>ایمیل</DropdownMenuItem>
+                            </DropdownMenuSubContent>
+                        </DropdownMenuPortal>
+                    </DropdownMenuSub>
+                </DropdownMenuContent>
+            </DropdownMenu>
         </div>
     );
 };
