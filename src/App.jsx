@@ -1,50 +1,68 @@
-import Button from "./components/common/Button";
-import { useState } from "react";
 import {
-    Select,
-    SelectContent,
-    SelectGroup,
-    SelectItem,
-    SelectLabel,
-    SelectSeparator,
-    SelectTrigger,
-    SelectValue,
-} from "./components/common/form/Select";
+    Table,
+    TableBody,
+    TableCaption,
+    TableCell,
+    TableFooter,
+    TableHead,
+    TableHeader,
+    TableRow,
+} from "./components/common/Table";
 
 const App = () => {
-    const [value, setValue] = useState("");
-
     return (
         <div className="p-5 flex gap-10">
-            <Select value={value} onValueChange={setValue} dir="rtl">
-                <SelectTrigger className="w-64">
-                    <SelectValue placeholder="یک دسته‌بندی انتخاب کنید" />
-                </SelectTrigger>
+            <Table>
+                <TableCaption>لیست سفارش‌های اخیر</TableCaption>
 
-                <SelectContent>
-                    <SelectGroup>
-                        <SelectLabel>میوه‌ها</SelectLabel>
+                <TableHeader>
+                    <TableRow>
+                        <TableHead>شماره سفارش</TableHead>
+                        <TableHead>مشتری</TableHead>
+                        <TableHead>وضعیت</TableHead>
+                        <TableHead className="text-right">مبلغ</TableHead>
+                    </TableRow>
+                </TableHeader>
 
-                        <SelectItem value="apple">سیب</SelectItem>
+                <TableBody>
+                    <TableRow>
+                        <TableCell>#1001</TableCell>
+                        <TableCell>علی رضایی</TableCell>
+                        <TableCell>تکمیل شده</TableCell>
+                        <TableCell className="text-right">
+                            ۱,۲۵۰,۰۰۰ تومان
+                        </TableCell>
+                    </TableRow>
 
-                        <SelectItem value="banana">موز</SelectItem>
+                    <TableRow>
+                        <TableCell>#1002</TableCell>
+                        <TableCell>سارا احمدی</TableCell>
+                        <TableCell>در حال پردازش</TableCell>
+                        <TableCell className="text-right">
+                            ۸۹۰,۰۰۰ تومان
+                        </TableCell>
+                    </TableRow>
 
-                        <SelectItem value="orange">پرتقال</SelectItem>
-                    </SelectGroup>
+                    <TableRow>
+                        <TableCell>#1003</TableCell>
+                        <TableCell>محمد کریمی</TableCell>
+                        <TableCell>لغو شده</TableCell>
+                        <TableCell className="text-right">
+                            ۵۴۰,۰۰۰ تومان
+                        </TableCell>
+                    </TableRow>
+                </TableBody>
 
-                    <SelectSeparator />
+                <TableFooter>
+                    <TableRow>
+                        <TableCell colSpan={3}>مجموع</TableCell>
 
-                    <SelectGroup>
-                        <SelectLabel>نوشیدنی‌ها</SelectLabel>
-
-                        <SelectItem value="coffee">قهوه</SelectItem>
-
-                        <SelectItem value="tea">چای</SelectItem>
-
-                        <SelectItem value="juice">آبمیوه</SelectItem>
-                    </SelectGroup>
-                </SelectContent>
-            </Select>
+                        <TableCell className="text-right">
+                            ۲,۶۸۰,۰۰۰ تومان
+                        </TableCell>
+                    </TableRow>
+                </TableFooter>
+            </Table>
         </div>
     );
 };
