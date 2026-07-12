@@ -1,28 +1,30 @@
 import {
-    Avatar,
-    AvatarFallback,
-    AvatarImage,
-} from "./components/common/Avatar";
+    Popover,
+    PopoverTrigger,
+    PopoverContent,
+} from "./components/common/Popover";
+import Button from "./components/common/Button";
 
 const App = () => {
     return (
         <div className="p-5">
-            <div className="flex items-center gap-4">
-                <Avatar>
-                    <AvatarImage
-                        src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop"
-                        alt="کاربر"
-                    />
-                    <AvatarFallback delayMs={600}>BR</AvatarFallback>
-                </Avatar>
-
-                <div>
-                    <p className="font-medium">بردیا اسدی</p>
-                    <p className="text-sm text-muted-foreground">
-                        bardia@example.com
-                    </p>
+            <Popover>
+                <div className="flex items-center gap-2">
+                    <PopoverTrigger asChild>
+                        <Button variant="outline">اطلاعات بیشتر</Button>
+                    </PopoverTrigger>
                 </div>
-            </div>
+
+                <PopoverContent>
+                    <h4 className="mb-2 font-medium">راهنما</h4>
+
+                    <p className="text-sm text-muted-foreground">
+                        این Popover با استفاده از Radix UI ساخته شده است و به
+                        کمک
+                        <code>PopoverAnchor</code> در کنار آیکون قرار می‌گیرد.
+                    </p>
+                </PopoverContent>
+            </Popover>
         </div>
     );
 };
