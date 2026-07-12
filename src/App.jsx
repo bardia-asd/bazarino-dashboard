@@ -1,3 +1,14 @@
+import { Link } from "react-router";
+import {
+    Pagination,
+    PaginationContent,
+    PaginationEllipsis,
+    PaginationItem,
+    PaginationLink,
+    PaginationNext,
+    PaginationPrevious,
+} from "./components/common/Pagination";
+
 import {
     Table,
     TableBody,
@@ -11,7 +22,7 @@ import {
 
 const App = () => {
     return (
-        <div className="p-5 flex gap-10">
+        <div className="p-5">
             <Table>
                 <TableCaption>لیست سفارش‌های اخیر</TableCaption>
 
@@ -63,6 +74,46 @@ const App = () => {
                     </TableRow>
                 </TableFooter>
             </Table>
+
+            <Pagination className="mt-6">
+                <PaginationContent>
+                    <PaginationItem>
+                        <PaginationPrevious as={Link} href="#" />
+                    </PaginationItem>
+
+                    <PaginationItem>
+                        <PaginationLink as={Link} href="#">
+                            1
+                        </PaginationLink>
+                    </PaginationItem>
+
+                    <PaginationItem>
+                        <PaginationLink as={Link} href="#" isActive>
+                            2
+                        </PaginationLink>
+                    </PaginationItem>
+
+                    <PaginationItem>
+                        <PaginationLink as={Link} href="#">
+                            3
+                        </PaginationLink>
+                    </PaginationItem>
+
+                    <PaginationItem>
+                        <PaginationEllipsis />
+                    </PaginationItem>
+
+                    <PaginationItem>
+                        <PaginationLink as={Link} href="#">
+                            10
+                        </PaginationLink>
+                    </PaginationItem>
+
+                    <PaginationItem>
+                        <PaginationNext as={Link} href="#" />
+                    </PaginationItem>
+                </PaginationContent>
+            </Pagination>
         </div>
     );
 };
