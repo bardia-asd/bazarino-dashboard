@@ -48,7 +48,6 @@ const PopoverContent = forwardRef(
                     ref={ref}
                     align={align}
                     sideOffset={sideOffset}
-                    collisionPadding={8}
                     className={cn(
                         "z-50 w-72 rounded-md border border-border bg-popover text-popover-foreground p-4 shadow-lg outline-none data-[state=open]:animate-fade-in data-[state=closed]:animate-fade-out data-[state=open]:animate-zoom-in data-[state=closed]:animate-zoom-out data-[side=top]:animate-slide-up data-[side=bottom]:animate-slide-down data-[side=left]:animate-slide-left data-[side=right]:animate-slide-right origin-[--radix-popover-content-transform-origin]",
                         className,

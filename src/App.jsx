@@ -1,30 +1,29 @@
 import {
-    Popover,
-    PopoverTrigger,
-    PopoverContent,
-} from "./components/common/Popover";
+    Tooltip,
+    TooltipTrigger,
+    TooltipContent,
+    TooltipProvider,
+} from "./components/common/Tooltip";
 import Button from "./components/common/Button";
+import { Info } from "lucide-react";
 
 const App = () => {
     return (
         <div className="p-5">
-            <Popover>
-                <div className="flex items-center gap-2">
-                    <PopoverTrigger asChild>
-                        <Button variant="outline">اطلاعات بیشتر</Button>
-                    </PopoverTrigger>
-                </div>
+            <TooltipProvider>
+                <Tooltip>
+                    <TooltipTrigger asChild>
+                        <Button variant="outline">
+                            <Info className="size-4" />
+                            راهنما
+                        </Button>
+                    </TooltipTrigger>
 
-                <PopoverContent>
-                    <h4 className="mb-2 font-medium">راهنما</h4>
-
-                    <p className="text-sm text-muted-foreground">
-                        این Popover با استفاده از Radix UI ساخته شده است و به
-                        کمک
-                        <code>PopoverAnchor</code> در کنار آیکون قرار می‌گیرد.
-                    </p>
-                </PopoverContent>
-            </Popover>
+                    <TooltipContent>
+                        <p>برای مشاهده جزئیات بیشتر، روی دکمه کلیک کنید.</p>
+                    </TooltipContent>
+                </Tooltip>
+            </TooltipProvider>
         </div>
     );
 };
