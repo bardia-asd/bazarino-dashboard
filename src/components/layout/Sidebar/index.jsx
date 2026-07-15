@@ -26,7 +26,7 @@ const Sidebar = () => {
     return (
         <aside
             className={cn(
-                "sticky top-0 right-0 z-10 h-dvh shrink-0 border-l border-sidebar-border bg-sidebar text-sidebar-foreground shadow-md transition-[width] duration-300 flex flex-col",
+                "sticky top-0 right-0 z-30 h-dvh shrink-0 border-l border-sidebar-border bg-sidebar text-sidebar-foreground shadow-md transition-[width] duration-300 flex flex-col",
                 collapsed ? "w-20" : "w-70",
             )}>
             {/* Sidebar header */}

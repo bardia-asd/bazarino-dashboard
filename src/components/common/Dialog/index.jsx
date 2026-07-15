@@ -62,7 +62,7 @@ DialogOverlay.propTypes = {
  * and includes a built-in close button.
  */
 const DialogContent = forwardRef(
-    ({ children, className = "", ...props }, ref) => {
+    ({ children, showCloseButton = true, className = "", ...props }, ref) => {
         return (
             <DialogPortal>
                 <DialogOverlay />
@@ -77,10 +77,12 @@ const DialogContent = forwardRef(
                     {children}
 
                     {/* Default close button */}
-                    <DialogPrimitive.Close className="absolute inset-e-4 top-4 rounded-sm text-muted-foreground flex items-center justify-center size-8 hover:bg-accent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
-                        <X size={16} />
-                        <span className="sr-only">Close</span>
-                    </DialogPrimitive.Close>
+                    {showCloseButton && (
+                        <DialogPrimitive.Close className="absolute inset-e-4 top-4 rounded-sm text-muted-foreground flex items-center justify-center size-8 hover:bg-accent transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
+                            <X size={16} />
+                            <span className="sr-only">Close</span>
+                        </DialogPrimitive.Close>
+                    )}
                 </DialogPrimitive.Content>
             </DialogPortal>
         );
@@ -94,6 +96,7 @@ DialogContent.displayName = "DialogContent";
  */
 DialogContent.propTypes = {
     children: PropTypes.node,
+    showCloseButton: PropTypes.bool,
     className: PropTypes.string,
 };
 
