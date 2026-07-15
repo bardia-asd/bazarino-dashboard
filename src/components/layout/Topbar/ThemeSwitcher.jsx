@@ -1,3 +1,15 @@
+import { Monitor, Moon, Sun } from "lucide-react";
+import {
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuLabel,
+    DropdownMenuTrigger,
+    DropdownMenuRadioGroup,
+    DropdownMenuRadioItem,
+} from "@/components/common/DropdownMenu";
+import Button from "@/components/common/Button";
+import { useTheme } from "@/context/ThemeContext";
+
 /**
  * Theme icons mapped to their
  * corresponding theme values.
@@ -59,3 +71,5 @@ const ThemeSwitcher = () => {
         </DropdownMenu>
     );
 };
+
+export default ThemeSwitcher;

@@ -6,6 +6,7 @@ import UserMenu from "./UserMenu";
 import ThemeSwitcher from "./ThemeSwitcher";
 import Badge from "@/components/common/Badge";
 import Button from "@/components/common/Button";
+import MobileSidebar from "../Sidebar/MobileSidebar";
 
 /**
  * Topbar component.
@@ -17,11 +18,17 @@ import Button from "@/components/common/Button";
 const Topbar = () => {
     return (
         <header className="sticky top-0 z-20 flex items-center gap-2 lg:gap-3 px-3 h-16 border-b border-border bg-surface/90">
+            {/* Mobile navigation drawer */}
+            <MobileSidebar />
+
+            {/* Mobile-only divider */}
+            <div className="w-px h-6 bg-border lg:hidden" />
+
             {/* Active store selector */}
             <StoreSwitcher />
 
             {/* Global search */}
-            <div className="flex-1 sm:max-w-xl sm:mx-auto">
+            <div className="flex-1 flex justify-end sm:justify-center max-w-xl sm:mx-auto">
                 <GlobalSearch />
             </div>
 

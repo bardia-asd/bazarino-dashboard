@@ -43,6 +43,7 @@ const SidebarProvider = ({ children }) => {
             value={{
                 collapsed,
                 mobileOpen,
+                setMobileOpen,
 
                 toggleCollapsed,
                 toggleMobile,

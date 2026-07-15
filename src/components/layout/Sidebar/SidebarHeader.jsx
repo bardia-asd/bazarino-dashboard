@@ -18,7 +18,7 @@ const SidebarHeader = ({ query, onQueryChange }) => {
             {/* Brand section */}
             <div
                 className={cn(
-                    "flex items-center py-2",
+                    "flex items-center gap-2 py-2",
                     collapsed && "justify-center",
                 )}>
                 <div className="flex items-center justify-center size-9 bg-primary rounded-full text-primary-foreground font-bold shrink-0">
@@ -26,7 +26,7 @@ const SidebarHeader = ({ query, onQueryChange }) => {
                 </div>
 
                 {!collapsed && (
-                    <div className="flex-1">
+                    <div className="flex-1 text-right">
                         <h3 className="text-sm font-medium truncate">
                             بازار پنل
                         </h3>
