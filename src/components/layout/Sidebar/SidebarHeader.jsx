@@ -58,7 +58,7 @@ const SidebarHeader = ({ query, onQueryChange }) => {
                 variant="ghost"
                 className={cn(
                     "absolute top-4 text-muted-foreground hidden lg:flex",
-                    collapsed ? "-left-5" : "left-2",
+                    collapsed ? "-left-4.5" : "left-2",
                 )}
                 onClick={toggleCollapsed}>
                 {collapsed ? (

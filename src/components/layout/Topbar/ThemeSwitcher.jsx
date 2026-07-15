@@ -1,35 +1,36 @@
-import { useState } from "react";
-import { Monitor, Moon, Sun } from "lucide-react";
-import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuLabel,
-    DropdownMenuTrigger,
-    DropdownMenuRadioGroup,
-    DropdownMenuRadioItem,
-} from "@/components/common/DropdownMenu";
-import Button from "@/components/common/Button";
+/**
+ * Theme icons mapped to their
+ * corresponding theme values.
+ */
+const icons = {
+    light: Sun,
+    dark: Moon,
+    system: Monitor,
+};
 
 /**
  * Theme switcher component.
  *
- * Displays a dropdown menu that allows
- * users to switch between light, dark,
- * and system theme preferences.
+ * Displays the current theme icon
+ * and allows users to switch between
+ * light, dark, and system themes.
  */
 const ThemeSwitcher = () => {
-    const [theme, setTheme] = useState("dark");
+    const { theme, setTheme } = useTheme();
+
+    // Resolve the icon for the active theme.
+    const ThemeIcon = icons[theme];
 
     return (
         <DropdownMenu dir="rtl">
-            {/* Dropdown trigger */}
-            <DropdownMenuTrigger>
+            {/* Theme switcher trigger */}
+            <DropdownMenuTrigger asChild>
                 <Button
                     size="icon"
                     variant="ghost"
                     radius="lg"
                     aria-label="تغییر تم">
-                    <Monitor size={16} />
+                    <ThemeIcon size={16} />
                 </Button>
             </DropdownMenuTrigger>
 
@@ -58,5 +59,3 @@ const ThemeSwitcher = () => {
         </DropdownMenu>
     );
 };
-
-export default ThemeSwitcher;
