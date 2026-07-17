@@ -48,13 +48,16 @@ export const dashboardRoutes = {
     element: <DashboardLayout />,
 
     handle: {
-        breadcrumb: "داشبورد",
+        breadcrumb: "پنل مدیریت",
     },
 
     children: [
         {
             index: true,
             element: <Dashboard />,
+            handle: {
+                breadcrumb: "داشبورد",
+            },
         },
 
         // Analytics
