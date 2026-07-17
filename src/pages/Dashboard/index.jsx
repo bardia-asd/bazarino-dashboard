@@ -1,7 +1,11 @@
-const Dashboard = () => {
-  return (
-    <div>Dashboard</div>
-  )
-}
+import { Breadcrumbs } from "../../components/common/Breadcrumbs";
 
-export default Dashboard
+const Dashboard = () => {
+    return (
+        <div>
+            <Breadcrumbs />
+        </div>
+    );
+};
+
+export default Dashboard;
