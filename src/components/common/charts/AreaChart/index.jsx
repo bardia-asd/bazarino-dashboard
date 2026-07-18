@@ -117,7 +117,7 @@ const AreaChart = ({
                 {showTooltip && <Tooltip content={<CustomTooltip />} />}
 
                 {/* Chart legend */}
-                {showLegend && <Legend />}
+                {showLegend && <Legend wrapperStyle={{fontSize: 12}} />}
 
                 {/* Render each area series */}
                 {areas.map((area) => (

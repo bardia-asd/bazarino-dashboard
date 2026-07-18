@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import { TrendingDown, TrendingUp } from "lucide-react";
 import { Card, CardContent } from "@/components/common/Card";
 import Badge from "@/components/common/Badge";

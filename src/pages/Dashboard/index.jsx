@@ -1,6 +1,7 @@
 import PageHeader from "@/components/layout/PageHeader";
 import Button from "@/components/common/Button";
 import DashboardStatGrid from "./components/DashboardStatGrid";
+import SalesOverview from "./components/SalesOverview";
 
 const Dashboard = () => {
     return (
@@ -24,6 +25,12 @@ const Dashboard = () => {
             />
 
             <DashboardStatGrid />
+
+            <section>
+                <div className="grid grid-cols-1 xl:grid-cols-3 gap-4">
+                    <SalesOverview />
+                </div>
+            </section>
         </div>
     );
 };
