@@ -26,7 +26,9 @@ const CustomTooltip = ({ active, payload, label, className = "" }) => {
                 className,
             )}>
             {/* Tooltip title, usually the chart category or date */}
-            <p className="text-xs text-muted-foreground mb-2">{label}</p>
+            {label && (
+                <p className="text-xs text-muted-foreground mb-2">{label}</p>
+            )}
 
             {/* Chart data items */}
             <div className="flex flex-col gap-1">
