@@ -1,3 +1,5 @@
+import { formatNumberFa } from "@/utils/formatter";
+
 /**
  * Custom legend component for pie charts.
  *

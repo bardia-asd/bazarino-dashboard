@@ -3,15 +3,7 @@ import Button from "@/components/common/Button";
 import DashboardStatGrid from "./components/DashboardStatGrid";
 import SalesOverview from "./components/SalesOverview";
 import PieChart from "@/components/common/charts/PieChart";
-import { categoryData } from "../../data/categoryData";
-
-const colors = [
-    "var(--color-chart-1)",
-    "var(--color-chart-2)",
-    "var(--color-chart-3)",
-    "var(--color-chart-4)",
-    "var(--color-chart-5)",
-];
+import SalesByCategory from "./components/SalesByCategory";
 
 const Dashboard = () => {
     return (
@@ -39,7 +31,7 @@ const Dashboard = () => {
             <section>
                 <div className="grid grid-cols-1 xl:grid-cols-3 gap-4">
                     <SalesOverview />
-                    <PieChart data={categoryData} colors={colors} />
+                    <SalesByCategory />
                 </div>
             </section>
         </div>
