@@ -11,6 +11,7 @@ import {
 } from "recharts";
 import { formatCompactNumberFa } from "@/utils/formatter";
 import CustomTooltip from "../CustomTooltip";
+import { useId } from "react";
 
 /**
  * Reusable area chart component.
@@ -35,11 +36,14 @@ const AreaChart = ({
         left: 20,
         bottom: 0,
     },
+    cartesianGrid = true,
     showTooltip = true,
     showLegend = true,
     showXAxis = true,
     showYAxis = true,
 }) => {
+    const gradientId = useId();
+
     return (
         <ResponsiveContainer width="100%" height={height}>
             <RechartsAreaChart data={data} margin={margin}>
@@ -51,7 +55,7 @@ const AreaChart = ({
                     {areas.map((area) => (
                         <linearGradient
                             key={area.dataKey}
-                            id={`${area.dataKey}-gradient`}
+                            id={`${gradientId}-${area.dataKey}`}
                             x1="0"
                             y1="0"
                             x2="0"
@@ -74,10 +78,12 @@ const AreaChart = ({
                 </defs>
 
                 {/* Chart background grid */}
-                <CartesianGrid
-                    strokeDasharray="3 3"
-                    className="stroke-border"
-                />
+                {cartesianGrid && (
+                    <CartesianGrid
+                        strokeDasharray="3 3"
+                        className="stroke-border"
+                    />
+                )}
 
                 {/* X axis displaying categories or dates */}
                 {showXAxis && (
@@ -129,7 +135,7 @@ const AreaChart = ({
                         // Connect missing values between points
                         connectNulls
                         // Apply generated gradient fill
-                        fill={`url(#${area.dataKey}-gradient)`}
+                        fill={`url(#${gradientId}-${area.dataKey})`}
                         // Entry animation
                         animationDuration={800}
                         animationEasing="ease-out"
@@ -159,6 +165,7 @@ AreaChart.propTypes = {
         left: PropTypes.number,
         bottom: PropTypes.number,
     }),
+    cartesianGrid: PropTypes.bool,
     showTooltip: PropTypes.bool,
     showLegend: PropTypes.bool,
     showXAxis: PropTypes.bool,

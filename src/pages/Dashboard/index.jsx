@@ -1,39 +1,6 @@
 import PageHeader from "@/components/layout/PageHeader";
 import Button from "@/components/common/Button";
-import AreaChart from "../../components/common/charts/AreaChart";
-
-const revenueData = [
-    {
-        month: "فروردین",
-        revenue: 45000000,
-        expenses: 18000000,
-    },
-    {
-        month: "اردیبهشت",
-        revenue: 52000000,
-        expenses: 22000000,
-    },
-    {
-        month: "خرداد",
-        revenue: 48000000,
-        expenses: 20000000,
-    },
-    {
-        month: "تیر",
-        revenue: 61000000,
-        expenses: 26000000,
-    },
-    {
-        month: "مرداد",
-        revenue: 73000000,
-        expenses: 31000000,
-    },
-    {
-        month: "شهریور",
-        revenue: 68000000,
-        expenses: 29000000,
-    },
-];
+import DashboardStatGrid from "./components/DashboardStatGrid";
 
 const Dashboard = () => {
     return (
@@ -56,22 +23,7 @@ const Dashboard = () => {
                 }
             />
 
-            <AreaChart
-                data={revenueData}
-                xKey="month"
-                areas={[
-                    {
-                        dataKey: "revenue",
-                        name: "درآمد",
-                        color: "var(--chart-2)",
-                    },
-                    {
-                        dataKey: "expenses",
-                        name: "هزینه",
-                        color: "var(--chart-1)",
-                    },
-                ]}
-            />
+            <DashboardStatGrid />
         </div>
     );
 };

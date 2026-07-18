@@ -43,4 +43,32 @@ const formatCompactNumberFa = (value) => {
     return new Intl.NumberFormat("fa-IR").format(value);
 };
 
-export { formatNumberFa, formatCompactNumberFa };
+const formatValue = (value, unit) => {
+    switch (unit) {
+        case "currency":
+            return {
+                value: formatNumberFa(value),
+                unit: "تومان",
+            };
+
+        case "percent":
+            return {
+                value: formatNumberFa(value),
+                unit: "%",
+            };
+
+        case "count":
+            return {
+                value: formatNumberFa(value),
+                unit: "",
+            };
+
+        default:
+            return {
+                value: formatNumberFa(value),
+                unit: "",
+            };
+    }
+};
+
+export { formatNumberFa, formatCompactNumberFa, formatValue };
