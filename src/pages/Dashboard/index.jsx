@@ -2,7 +2,6 @@ import PageHeader from "@/components/layout/PageHeader";
 import Button from "@/components/common/Button";
 import DashboardStatGrid from "./components/DashboardStatGrid";
 import SalesOverview from "./components/SalesOverview";
-import PieChart from "@/components/common/charts/PieChart";
 import SalesByCategory from "./components/SalesByCategory";
 
 const Dashboard = () => {
