@@ -19,6 +19,7 @@ import {
 } from "@/components/common/Table";
 import TableSkeleton from "@/components/common/Table/TableSkeleton";
 import TableEmpty from "@/components/common/Table/TableEmpty";
+import TableError from "@/components/common/Table/TableError";
 import { useLatestOrders } from "@/features/orders/hooks/useLatestOrders";
 import LatestTableRow from "./LatestTableRow";
 
@@ -42,6 +43,12 @@ const LatestOrders = () => {
             </CardHeader>
             <CardContent>
                 {loading && <TableSkeleton columns={6} />}
+                {error && (
+                    <TableError
+                        message="خطا در دریافت سفارش‌ها"
+                        onRetry={refetch}
+                    />
+                )}
                 {!loading && !error && orders.length === 0 && (
                     <TableEmpty
                         title="سفارشی وجود ندارد"
