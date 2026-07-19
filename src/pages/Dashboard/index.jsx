@@ -3,6 +3,7 @@ import Button from "@/components/common/Button";
 import DashboardStatGrid from "./components/DashboardStatGrid";
 import SalesOverview from "./components/SalesOverview";
 import SalesByCategory from "./components/SalesByCategory";
+import LatestOrders from "./components/LatestOrders";
 
 const Dashboard = () => {
     return (
@@ -31,6 +32,12 @@ const Dashboard = () => {
                 <div className="grid grid-cols-1 xl:grid-cols-3 gap-4">
                     <SalesOverview />
                     <SalesByCategory />
+                </div>
+            </section>
+
+            <section>
+                <div className="grid grid-cols-1 xl:grid-cols-3 gap-4">
+                    <LatestOrders />
                 </div>
             </section>
         </div>

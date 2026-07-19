@@ -18,6 +18,26 @@ export const getOrders = async () => {
 };
 
 /**
+ * Fetches the latest orders.
+ *
+ * Returns a limited number of orders sorted by
+ * creation date in descending order (newest first).
+ *
+ * @param {number} limit - Maximum number of orders to return.
+ */
+export const getLatestOrders = async (limit = 6) => {
+    const { data, error } = await supabase
+        .from("orders")
+        .select("*")
+        .order("created_at", { ascending: false })
+        .limit(limit);
+
+    if (error) throw error;
+
+    return data;
+};
+
+/**
  * Creates a new order.
  *
  * Returns the newly created order.

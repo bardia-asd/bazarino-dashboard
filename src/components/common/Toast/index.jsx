@@ -1,4 +1,5 @@
 import { Toaster as Sonner, toast } from "sonner";
+import { useTheme } from "@/context/ThemeContext";
 
 /**
  * Global toast provider.
@@ -7,6 +8,7 @@ import { Toaster as Sonner, toast } from "sonner";
  * with shared styling and default behavior.
  */
 const Toaster = ({ ...props }) => {
+    const { resolvedTheme } = useTheme();
     return (
         <Sonner
             // Default toast placement.
@@ -14,6 +16,7 @@ const Toaster = ({ ...props }) => {
             richColors
             closeButton
             expand
+            theme={resolvedTheme}
             // Default auto-dismiss duration (ms).
             duration={4000}
             toastOptions={{
