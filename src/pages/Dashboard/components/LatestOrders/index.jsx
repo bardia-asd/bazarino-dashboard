@@ -17,6 +17,7 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/common/Table";
+import TableSkeleton from "@/components/common/Table/TableSkeleton";
 import { useLatestOrders } from "@/features/orders/hooks/useLatestOrders";
 import LatestTableRow from "./LatestTableRow";
 
@@ -39,23 +40,26 @@ const LatestOrders = () => {
                 </Button>
             </CardHeader>
             <CardContent>
-                <Table>
-                    <TableHeader>
-                        <TableRow className="text-xs">
-                            <TableHead>شناسه</TableHead>
-                            <TableHead>مشتری</TableHead>
-                            <TableHead>فروشنده</TableHead>
-                            <TableHead>اقلام</TableHead>
-                            <TableHead>مبلغ</TableHead>
-                            <TableHead>وضعیت</TableHead>
-                        </TableRow>
-                    </TableHeader>
-                    <TableBody>
-                        {orders.map((order) => (
-                            <LatestTableRow key={order.id} order={order} />
-                        ))}
-                    </TableBody>
-                </Table>
+                {loading && <TableSkeleton columns={6} />}
+                {!loading && !error && orders.length > 0 && (
+                    <Table>
+                        <TableHeader>
+                            <TableRow className="text-xs">
+                                <TableHead>شناسه</TableHead>
+                                <TableHead>مشتری</TableHead>
+                                <TableHead>فروشنده</TableHead>
+                                <TableHead>اقلام</TableHead>
+                                <TableHead>مبلغ</TableHead>
+                                <TableHead>وضعیت</TableHead>
+                            </TableRow>
+                        </TableHeader>
+                        <TableBody>
+                            {orders.map((order) => (
+                                <LatestTableRow key={order.id} order={order} />
+                            ))}
+                        </TableBody>
+                    </Table>
+                )}
             </CardContent>
         </Card>
     );
