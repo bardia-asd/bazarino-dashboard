@@ -4,6 +4,7 @@ import DashboardStatGrid from "./components/DashboardStatGrid";
 import SalesOverview from "./components/SalesOverview";
 import SalesByCategory from "./components/SalesByCategory";
 import LatestOrders from "./components/LatestOrders";
+import Progress from "../../components/common/Progress";
 
 const Dashboard = () => {
     return (
@@ -40,6 +41,7 @@ const Dashboard = () => {
                     <LatestOrders />
                 </div>
             </section>
+            <Progress value={20} />
         </div>
     );
 };
