@@ -25,3 +25,7 @@ dist-ssr
 
 
 .env.local
+
+# Allow pages Logs folder
+!src/pages/Logs/
+!src/pages/Logs/**

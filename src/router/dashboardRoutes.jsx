@@ -29,7 +29,7 @@ import Users from "@/pages/Users";
 import Roles from "@/pages/Roles";
 import System from "@/pages/System";
 import Errors from "@/pages/Errors";
-import Logs from "@/pages/Logs";
+import ActivityLogs from "@/pages/ActivityLogs";
 
 /**
  * Dashboard route configuration.
@@ -236,7 +236,7 @@ export const dashboardRoutes = {
         },
         {
             path: "logs",
-            element: <Logs />,
+            element: <ActivityLogs />,
             handle: {
                 breadcrumb: "لاگ فعالیت‌ها",
             },
