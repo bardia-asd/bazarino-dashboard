@@ -28,7 +28,7 @@ export const getTopSellingProducts = async (limit = 5) => {
     const { data, error } = await supabase
         .from("products")
         .select("*")
-        .order("created_at", { ascending: false })
+        .order("sales", { ascending: false })
         .limit(limit);
 
     if (error) throw error;

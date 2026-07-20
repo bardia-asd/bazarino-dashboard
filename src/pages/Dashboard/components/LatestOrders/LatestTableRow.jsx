@@ -38,7 +38,9 @@ const LatestTableRow = ({ order }) => {
             {/* Total order amount */}
             <TableCell className="font-bold">
                 {formatNumberFa(total_amount)}
-                <span className="mr-1">تومان</span>
+                <span className="mr-1 text-xs font-normal text-muted-foreground">
+                    تومان
+                </span>
             </TableCell>
 
             {/* Current shipping status */}
