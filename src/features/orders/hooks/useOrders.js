@@ -74,11 +74,11 @@ export const useOrders = () => {
      * Replaces the updated order
      * inside the local state.
      */
-    const updateOrder = async (id, order) => {
+    const updateOrder = async (id, updates) => {
         setMutationLoading(true);
 
         try {
-            const updatedOrder = await updateOrderService(id, order);
+            const updatedOrder = await updateOrderService(id, updates);
 
             setOrders((prev) =>
                 prev.map((order) => (order.id === id ? updatedOrder : order)),
