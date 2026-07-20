@@ -5,6 +5,7 @@ import SalesOverview from "./components/SalesOverview";
 import SalesByCategory from "./components/SalesByCategory";
 import LatestOrders from "./components/LatestOrders";
 import Progress from "../../components/common/Progress";
+import StockAlert from "./components/StockAlert";
 
 const Dashboard = () => {
     return (
@@ -39,9 +40,9 @@ const Dashboard = () => {
             <section>
                 <div className="grid grid-cols-1 xl:grid-cols-3 gap-4">
                     <LatestOrders />
+                    <StockAlert />
                 </div>
             </section>
-            <Progress value={20} />
         </div>
     );
 };
