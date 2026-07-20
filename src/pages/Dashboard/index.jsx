@@ -6,8 +6,7 @@ import SalesByCategory from "./components/SalesByCategory";
 import LatestOrders from "./components/LatestOrders";
 import StockAlert from "./components/StockAlert";
 import TopSellingProducts from "./components/TopSellingProducts";
-import BarChart from "../../components/common/charts/BarChart";
-import { campaignSpentData } from "../../data/campaignsData";
+import CampaignPerformance from "./components/CampaignPerformance";
 
 const Dashboard = () => {
     return (
@@ -49,19 +48,7 @@ const Dashboard = () => {
             <section>
                 <div className="grid grid-cols-1 xl:grid-cols-3 gap-4">
                     <TopSellingProducts />
-                    <BarChart
-                        data={campaignSpentData}
-                        xKey="name"
-                        bars={[
-                            {
-                                dataKey: "spent",
-                                name: "هزینه تبلیغات",
-                                color: "var(--color-primary)",
-                            },
-                        ]}
-                        showYAxis={false}
-                        height="100%"
-                    />
+                    <CampaignPerformance />
                 </div>
             </section>
         </div>
