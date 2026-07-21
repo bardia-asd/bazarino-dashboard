@@ -46,7 +46,7 @@ const PageHeader = ({ title, description, actions, className = "" }) => {
 
                                 return (
                                     <Fragment key={item.href}>
-                                        <BreadcrumbsItem>
+                                        <BreadcrumbsItem className="text-xs">
                                             {isLast ? (
                                                 // Current page breadcrumb
                                                 <BreadcrumbsPage>
