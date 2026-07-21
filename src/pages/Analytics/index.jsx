@@ -1,5 +1,6 @@
 import PageHeader from "@/components/layout/PageHeader";
 import Button from "@/components/common/Button";
+import StatGrid from "./components/StatGrid";
 
 const Analytics = () => {
     return (
@@ -26,7 +27,7 @@ const Analytics = () => {
                 }
             />
 
-            
+            <StatGrid />
         </div>
     );
 };
