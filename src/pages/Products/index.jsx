@@ -1,4 +1,5 @@
 import PageHeader from "@/components/layout/PageHeader";
+import StatGrid from "./components/StatGrid";
 
 const Products = () => {
     return (
@@ -7,6 +8,8 @@ const Products = () => {
                 title="محصولات"
                 description="مدیریت کاتالوگ، قیمت‌گذاری، موجودی و انتشار محصولات"
             />
+
+            <StatGrid />
         </div>
     );
 };
