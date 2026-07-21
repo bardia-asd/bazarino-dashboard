@@ -2,6 +2,7 @@ import PageHeader from "@/components/layout/PageHeader";
 import Button from "@/components/common/Button";
 import StatGrid from "./components/StatGrid";
 import RevenueTrend from "./components/RevenueTrend";
+import SalesChannels from "./components/SalesChannels";
 
 const Analytics = () => {
     return (
@@ -31,6 +32,12 @@ const Analytics = () => {
             <StatGrid />
 
             <RevenueTrend />
+
+            <section>
+                <div className="grid grid-cols-1 xl:grid-cols-2 gap-4">
+                    <SalesChannels />
+                </div>
+            </section>
         </div>
     );
 };
