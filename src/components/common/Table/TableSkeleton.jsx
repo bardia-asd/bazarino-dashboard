@@ -7,7 +7,7 @@ import Skeleton from "../Skeleton";
  * Displays placeholder rows and columns while
  * table data is being fetched.
  */
-const TableSkeleton = ({ rows = 6, columns = 8 }) => {
+const TableSkeleton = ({ rows = 6, columns = 9 }) => {
     return (
         <div className="divide-y divide-border">
             {/* Generate skeleton rows */}

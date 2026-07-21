@@ -1,5 +1,6 @@
 import PageHeader from "@/components/layout/PageHeader";
 import StatGrid from "./components/StatGrid";
+import ProductsTable from "@/features/products/components/ProductsTable";
 
 const Products = () => {
     return (
@@ -10,6 +11,10 @@ const Products = () => {
             />
 
             <StatGrid />
+
+            <section>
+                <ProductsTable />
+            </section>
         </div>
     );
 };
