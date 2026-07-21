@@ -11,12 +11,12 @@ import { cn } from "@/utils/cn";
  * consistent positioning, spacing, and visual styling.
  */
 const drawerVariants = cva(
-    "z-50 flex flex-col bg-background shadow-lg border-border h-auto p-6",
+    "z-50 flex flex-col bg-background shadow-lg border-border h-auto w-md p-6",
     {
         variants: {
             direction: {
-                left: "fixed inset-y-0 left-0 w-full max-w-sm sm:max-w-md border-r bg-background",
-                right: "fixed inset-y-0 right-0 w-full max-w-sm sm-max-w-md border-l bg-background",
+                left: "fixed inset-y-0 left-0 border-r bg-background",
+                right: "fixed inset-y-0 right-0 border-l bg-background",
                 top: "fixed top-0 left-0 w-full max-h-[80vh] border-b",
                 bottom: "fixed bottom-0 left-0 w-full h-auto max-h-[80vh] rounded-t-xl border-t",
             },

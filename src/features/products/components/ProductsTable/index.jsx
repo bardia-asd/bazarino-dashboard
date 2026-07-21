@@ -33,7 +33,6 @@ const ProductsTable = () => {
         fetchLoading,
         error,
         refetch,
-        addProduct,
         updateProduct,
         deleteProduct,
     } = useProducts();
