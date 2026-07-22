@@ -26,6 +26,7 @@ const EditProductDrawer = () => {
         selectedProduct,
         editOpen,
         closeEditDrawer,
+        clearFilters
     } = useProductContext();
 
     // Update the selected product and close the drawer on success
@@ -33,6 +34,7 @@ const EditProductDrawer = () => {
         if (!selectedProduct) return;
 
         await updateProduct(selectedProduct.id, updates);
+        clearFilters();
         closeEditDrawer();
     };
 

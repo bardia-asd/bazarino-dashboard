@@ -7,8 +7,13 @@ export const ProductProvider = ({ children }) => {
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [editOpen, setEditOpen] = useState(false);
     const [deleteOpen, setDeleteOpen] = useState(false);
+    const [filters, setFilters] = useState({
+        search: "",
+        status: "all",
+        category: "all",
+    });
 
-    const products = useProducts();
+    const products = useProducts(filters);
 
     const openEditDrawer = (product) => {
         setSelectedProduct(product);
@@ -30,6 +35,18 @@ export const ProductProvider = ({ children }) => {
         setSelectedProduct(null);
     };
 
+    const updateFilter = (key, value) => {
+        setFilters((prev) => ({ ...prev, [key]: value }));
+    };
+
+    const clearFilters = () => {
+        setFilters({
+            search: "",
+            status: "all",
+            category: "all",
+        });
+    };
+
     return (
         <ProductContext.Provider
             value={{
@@ -38,12 +55,16 @@ export const ProductProvider = ({ children }) => {
                 selectedProduct,
                 editOpen,
                 deleteOpen,
+                filters,
 
                 openEditDrawer,
                 closeEditDrawer,
 
                 openDeleteDialog,
                 closeDeleteDialog,
+
+                updateFilter,
+                clearFilters,
             }}>
             {children}
         </ProductContext.Provider>

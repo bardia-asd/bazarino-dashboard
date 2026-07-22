@@ -17,7 +17,7 @@ import {
  * - Deleting products
  * - Managing loading and error states
  */
-export const useProducts = () => {
+export const useProducts = (filters) => {
     // Products list state
     const [products, setProducts] = useState([]);
 
@@ -37,7 +37,7 @@ export const useProducts = () => {
         setFetchLoading(true);
 
         try {
-            const data = await getProducts();
+            const data = await getProducts(filters);
 
             setProducts(data);
             setError(null);
@@ -51,7 +51,7 @@ export const useProducts = () => {
     // Fetch products when component using this hook mounts
     useEffect(() => {
         fetchProducts();
-    }, []);
+    }, [filters]);
 
     /**
      * Create a new product.
@@ -64,10 +64,10 @@ export const useProducts = () => {
 
         try {
             const newProduct = await createProduct(product);
-
+            
             // Add new product to the beginning of the list
             setProducts((prev) => [newProduct, ...prev]);
-
+            
             toast.success("محصول ایجاد شد");
             setError(null);
 

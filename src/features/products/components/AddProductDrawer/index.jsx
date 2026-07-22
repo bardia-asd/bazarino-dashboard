@@ -21,11 +21,12 @@ import { useProductContext } from "@/features/products/context/ProductContext";
  */
 const AddProductDrawer = () => {
     const [open, setOpen] = useState(false);
-    const { mutationLoading, addProduct } = useProductContext();
+    const { mutationLoading, addProduct, clearFilters } = useProductContext();
 
     // Create a new product and close the drawer on success
     const handleCreate = async (product) => {
         await addProduct(product);
+        clearFilters();
         setOpen(false);
     };
 

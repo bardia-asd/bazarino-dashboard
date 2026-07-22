@@ -18,6 +18,7 @@ const DeleteProductDialog = () => {
         selectedProduct,
         deleteOpen,
         closeDeleteDialog,
+        clearFilters,
     } = useProductContext();
 
     // Handles product deletion after user confirmation
@@ -28,6 +29,7 @@ const DeleteProductDialog = () => {
         if (!selectedProduct) return;
 
         await deleteProduct(selectedProduct.id);
+        clearFilters();
 
         // Close dialog after successful deletion
         closeDeleteDialog();

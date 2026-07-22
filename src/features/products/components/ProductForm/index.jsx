@@ -14,6 +14,10 @@ import {
     SelectValue,
 } from "@/components/common/form/Select";
 import { Save } from "lucide-react";
+import {
+    PRODUCT_CATEGORIES,
+    PRODUCT_STATUSES,
+} from "@/features/products/constant/productOptions";
 
 const defaultProduct = {
     product_name: "",
@@ -171,26 +175,13 @@ const ProductForm = ({ defaultValues = defaultProduct, loading, onSubmit }) => {
                             </SelectTrigger>
 
                             <SelectContent>
-                                <SelectItem value="موبایل">موبایل</SelectItem>
-                                <SelectItem value="لپ تاپ">لپ تاپ</SelectItem>
-                                <SelectItem value="لوازم جانبی">
-                                    لوازم جانبی
-                                </SelectItem>
-                                <SelectItem value="مانیتور">مانیتور</SelectItem>
-                                <SelectItem value="گیمینگ">گیمینگ</SelectItem>
-                                <SelectItem value="قطعات کامپیوتر">
-                                    قطعات کامپیوتر
-                                </SelectItem>
-                                <SelectItem value="پوشیدنی">پوشیدنی</SelectItem>
-                                <SelectItem value="تبلت">تبلت</SelectItem>
-                                <SelectItem value="ذخیره سازی">
-                                    ذخیره سازی
-                                </SelectItem>
-                                <SelectItem value="صوتی">صوتی</SelectItem>
-                                <SelectItem value="دوربین">دوربین</SelectItem>
-                                <SelectItem value="لوازم خانگی">
-                                    لوازم خانگی
-                                </SelectItem>
+                                {PRODUCT_CATEGORIES.map((category) => (
+                                    <SelectItem
+                                        key={category.value}
+                                        value={category.value}>
+                                        {category.label}
+                                    </SelectItem>
+                                ))}
                             </SelectContent>
                         </Select>
 
@@ -213,16 +204,13 @@ const ProductForm = ({ defaultValues = defaultProduct, loading, onSubmit }) => {
                             </SelectTrigger>
 
                             <SelectContent>
-                                <SelectItem value="active">فعال</SelectItem>
-                                <SelectItem value="inactive">
-                                    غیرفعال
-                                </SelectItem>
-                                <SelectItem value="low_stock">
-                                    موجودی کم
-                                </SelectItem>
-                                <SelectItem value="out_of_stock">
-                                    اتمام موجودی
-                                </SelectItem>
+                                {PRODUCT_STATUSES.map((status) => (
+                                    <SelectItem
+                                        key={status.value}
+                                        value={status.value}>
+                                        {status.label}
+                                    </SelectItem>
+                                ))}
                             </SelectContent>
                         </Select>
                     </Field>

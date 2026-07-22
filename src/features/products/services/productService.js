@@ -6,11 +6,27 @@ import { supabase } from "@/lib/supabase";
  * Returns products sorted by creation date
  * in descending order (newest first).
  */
-export const getProducts = async () => {
-    const { data: products, error } = await supabase
+export const getProducts = async (filters) => {
+    let query = supabase
         .from("products")
         .select("*")
         .order("created_at", { ascending: false });
+
+    if (filters.search) {
+        query = query.or(
+            `product_name.ilike.%${filters.search}%,sku.ilike.%${filters.search}%`
+        );
+    }
+
+    if (filters.status !== "all") {
+        query = query.eq("status", filters.status);
+    }
+
+    if (filters.category !== "all") {
+        query = query.eq("category", filters.category);
+    }
+
+    const { data: products, error } = await query;
 
     if (error) throw error;
 

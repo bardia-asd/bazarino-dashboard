@@ -1,4 +1,4 @@
-import { Search } from "lucide-react";
+import { useProductContext } from "@/features/products/context/ProductContext";
 import {
     Card,
     CardAction,
@@ -16,9 +16,8 @@ import {
 import TableSkeleton from "@/components/common/Table/TableSkeleton";
 import TableError from "@/components/common/Table/TableError";
 import TableEmpty from "@/components/common/Table/TableEmpty";
-import Input from "@/components/common/form/Input";
 import ProductTableRow from "./ProductTableRow";
-import { useProductContext } from "@/features/products/context/ProductContext";
+import ProductsTableToolbar from "../ProductsTableToolbar";
 
 /**
  * Products table.
@@ -39,27 +38,16 @@ const ProductsTable = () => {
 
     return (
         <Card>
-            <CardHeader>
-                {/* Product search */}
-                <div className="flex-1 max-w-sm">
-                    <Input
-                        placeholder="جستجو در محصولات، SKU..."
-                        radius="full"
-                        startIcon={<Search size={16} />}
-                        className="text-sm"
-                    />
-                </div>
+            <CardContent className="p-0">
+                <ProductsTableToolbar />
 
-                {/* Table actions */}
-                <CardAction></CardAction>
-            </CardHeader>
-
-            <CardContent>
                 {/* Loading state */}
                 {fetchLoading && <TableSkeleton />}
 
                 {/* Error state */}
-                {error && <TableError message={error} onRetry={refetch} />}
+                {!fetchLoading && error && (
+                    <TableError message={error} onRetry={refetch} />
+                )}
 
                 {/* Empty state */}
                 {!fetchLoading && !error && products.length === 0 && (
