@@ -4,6 +4,7 @@ import { TableCell, TableRow } from "@/components/common/Table";
 import Button from "@/components/common/Button";
 import ProductStatusBadge from "../ProductStatusBadge";
 import { formatNumberFa } from "@/utils/formatter";
+import { useProductContext } from "@/features/products/context/ProductContext";
 
 /**
  * Product table row.
@@ -24,6 +25,8 @@ const ProductTableRow = ({ product }) => {
         seller_name,
         sales,
     } = product;
+
+    const { openEditDrawer } = useProductContext();
 
     return (
         <TableRow className="text-xs">
@@ -83,7 +86,8 @@ const ProductTableRow = ({ product }) => {
                     <Button
                         variant="secondary"
                         size="icon"
-                        className="size-8 bg-transparent hover:bg-accent">
+                        className="size-8 bg-transparent hover:bg-accent"
+                        onClick={() => openEditDrawer(product)}>
                         <Pencil size={16} />
                     </Button>
 
