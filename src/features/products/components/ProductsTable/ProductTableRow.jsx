@@ -26,7 +26,7 @@ const ProductTableRow = ({ product }) => {
         sales,
     } = product;
 
-    const { openEditDrawer } = useProductContext();
+    const { openEditDrawer, openDeleteDialog } = useProductContext();
 
     return (
         <TableRow className="text-xs">
@@ -95,7 +95,8 @@ const ProductTableRow = ({ product }) => {
                     <Button
                         variant="destructive"
                         size="icon"
-                        className="size-8 bg-transparent text-destructive hover:bg-destructive/10">
+                        className="size-8 bg-transparent text-destructive hover:bg-destructive/10"
+                        onClick={() => openDeleteDialog(product)}>
                         <Trash2 size={16} />
                     </Button>
                 </div>

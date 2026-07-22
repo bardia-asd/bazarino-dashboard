@@ -129,7 +129,7 @@ const AlertDialogFooter = forwardRef(
             <div
                 ref={ref}
                 className={cn(
-                    "flex flex-col-reverse sm:flex-row sm:justify-end gap-2",
+                    "flex flex-col sm:flex-row sm:justify-end gap-2",
                     className,
                 )}
                 {...props}>

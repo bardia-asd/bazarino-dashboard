@@ -6,6 +6,7 @@ const ProductContext = createContext();
 export const ProductProvider = ({ children }) => {
     const [selectedProduct, setSelectedProduct] = useState(null);
     const [editOpen, setEditOpen] = useState(false);
+    const [deleteOpen, setDeleteOpen] = useState(false);
 
     const products = useProducts();
 
@@ -19,14 +20,30 @@ export const ProductProvider = ({ children }) => {
         setSelectedProduct(null);
     };
 
+    const openDeleteDialog = (product) => {
+        setSelectedProduct(product);
+        setDeleteOpen(true);
+    };
+
+    const closeDeleteDialog = () => {
+        setDeleteOpen(false);
+        setSelectedProduct(null);
+    };
+
     return (
         <ProductContext.Provider
             value={{
                 ...products,
+
                 selectedProduct,
                 editOpen,
+                deleteOpen,
+
                 openEditDrawer,
                 closeEditDrawer,
+
+                openDeleteDialog,
+                closeDeleteDialog,
             }}>
             {children}
         </ProductContext.Provider>
