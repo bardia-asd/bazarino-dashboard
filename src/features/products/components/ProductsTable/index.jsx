@@ -18,7 +18,7 @@ import TableError from "@/components/common/Table/TableError";
 import TableEmpty from "@/components/common/Table/TableEmpty";
 import Input from "@/components/common/form/Input";
 import ProductTableRow from "./ProductTableRow";
-import { useProducts } from "@/features/products/hooks/useProducts";
+import { useProductContext } from "@/features/products/context/ProductContext";
 
 /**
  * Products table.
@@ -35,7 +35,7 @@ const ProductsTable = () => {
         refetch,
         updateProduct,
         deleteProduct,
-    } = useProducts();
+    } = useProductContext();
 
     return (
         <Card>
