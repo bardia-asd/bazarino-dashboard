@@ -6,15 +6,21 @@ import { supabase } from "@/lib/supabase";
  * Returns products sorted by creation date
  * in descending order (newest first).
  */
-export const getProducts = async (filters) => {
+export const getProducts = async (filters, pagination) => {
+    const { page, pageSize } = pagination;
+
+    const start = (page - 1) * pageSize;
+    const end = start + pageSize - 1;
+
     let query = supabase
         .from("products")
-        .select("*")
-        .order("created_at", { ascending: false });
+        .select("*", { count: "exact" })
+        .order("created_at", { ascending: false })
+        .range(start, end);
 
     if (filters.search) {
         query = query.or(
-            `product_name.ilike.%${filters.search}%,sku.ilike.%${filters.search}%`
+            `product_name.ilike.%${filters.search}%,sku.ilike.%${filters.search}%`,
         );
     }
 
@@ -26,11 +32,11 @@ export const getProducts = async (filters) => {
         query = query.eq("category", filters.category);
     }
 
-    const { data: products, error } = await query;
+    const { data: products, error, count } = await query;
 
     if (error) throw error;
 
-    return products;
+    return { products, count };
 };
 
 /**

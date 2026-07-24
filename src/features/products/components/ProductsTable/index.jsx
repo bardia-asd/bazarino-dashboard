@@ -18,6 +18,7 @@ import TableError from "@/components/common/Table/TableError";
 import TableEmpty from "@/components/common/Table/TableEmpty";
 import ProductTableRow from "./ProductTableRow";
 import ProductsTableToolbar from "../ProductsTableToolbar";
+import ProductPagination from "../ProductPagination";
 
 /**
  * Products table.
@@ -49,7 +50,6 @@ const ProductsTable = () => {
                     <TableError message={error} onRetry={refetch} />
                 )}
 
-                {/* Empty state */}
                 {!fetchLoading && !error && products.length === 0 && (
                     <TableEmpty
                         title="محصولی یافت نشد"
@@ -87,7 +87,11 @@ const ProductsTable = () => {
             </CardContent>
 
             {/* Table footer */}
-            <CardFooter></CardFooter>
+            {!fetchLoading && !error && products.length > 0 && (
+                <CardFooter className="p-4">
+                    <ProductPagination />
+                </CardFooter>
+            )}
         </Card>
     );
 };

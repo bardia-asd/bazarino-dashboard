@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { toast } from "@/components/common/Toast";
 import {
     createProduct,
@@ -6,6 +6,7 @@ import {
     deleteProduct as deleteProductService,
     updateProduct as updateProductService,
 } from "../services/productService";
+import { useProductContext } from "../context/ProductContext";
 
 /**
  * Custom hook for managing products.
@@ -17,7 +18,7 @@ import {
  * - Deleting products
  * - Managing loading and error states
  */
-export const useProducts = (filters) => {
+export const useProducts = (filters, pagination) => {
     // Products list state
     const [products, setProducts] = useState([]);
 
@@ -30,28 +31,31 @@ export const useProducts = (filters) => {
     // Stores request errors
     const [error, setError] = useState(null);
 
+    const [totalCount, setTotalCount] = useState(0);
+
     /**
      * Fetch all products from database.
      */
-    const fetchProducts = async () => {
+    const fetchProducts = useCallback(async () => {
         setFetchLoading(true);
 
         try {
-            const data = await getProducts(filters);
+            const result = await getProducts(filters, pagination);
 
-            setProducts(data);
+            setProducts(result.products);
+            setTotalCount(result.count);
             setError(null);
         } catch (error) {
             setError(error.message);
         } finally {
             setFetchLoading(false);
         }
-    };
+    }, [filters, pagination]);
 
     // Fetch products when component using this hook mounts
     useEffect(() => {
         fetchProducts();
-    }, [filters]);
+    }, [fetchProducts]);
 
     /**
      * Create a new product.
@@ -64,10 +68,11 @@ export const useProducts = (filters) => {
 
         try {
             const newProduct = await createProduct(product);
-            
+
             // Add new product to the beginning of the list
             setProducts((prev) => [newProduct, ...prev]);
-            
+            setTotalCount((prev) => prev + 1);
+
             toast.success("محصول ایجاد شد");
             setError(null);
 
@@ -124,6 +129,7 @@ export const useProducts = (filters) => {
 
             // Remove deleted product from state
             setProducts((prev) => prev.filter((product) => product.id !== id));
+            setTotalCount((prev) => prev - 1);
 
             toast.success("محصول حذف شد");
             setError(null);
@@ -137,6 +143,7 @@ export const useProducts = (filters) => {
 
     return {
         products,
+        totalCount,
 
         fetchLoading,
         mutationLoading,
