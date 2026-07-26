@@ -1,5 +1,7 @@
+import UnderConstruction from "@/components/feedback/UnderConstruction";
+
 const Settings = () => {
-    return <div>Settings</div>;
+    return <UnderConstruction />;
 };
 
 export default Settings;

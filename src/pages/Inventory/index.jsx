@@ -1,5 +1,7 @@
+import UnderConstruction from "@/components/feedback/UnderConstruction";
+
 const Inventory = () => {
-    return <div>Inventory</div>;
+    return <UnderConstruction />;
 };
 
 export default Inventory;

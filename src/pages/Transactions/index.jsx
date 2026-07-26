@@ -1,7 +1,7 @@
-import React from "react";
+import UnderConstruction from "@/components/feedback/UnderConstruction";
 
 const Transactions = () => {
-    return <div>Transactions</div>;
+    return <UnderConstruction />;
 };
 
 export default Transactions;

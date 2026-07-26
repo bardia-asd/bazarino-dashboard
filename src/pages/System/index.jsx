@@ -1,5 +1,7 @@
+import UnderConstruction from "@/components/feedback/UnderConstruction";
+
 const System = () => {
-    return <div>System</div>;
+    return <UnderConstruction />;
 };
 
 export default System;

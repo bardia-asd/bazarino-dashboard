@@ -1,5 +1,7 @@
+import UnderConstruction from "@/components/feedback/UnderConstruction";
+
 const Sellers = () => {
-    return <div>Sellers</div>;
+    return <UnderConstruction />;
 };
 
 export default Sellers;

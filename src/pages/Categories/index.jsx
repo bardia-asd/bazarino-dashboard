@@ -1,7 +1,7 @@
-const Categories = () => {
-  return (
-    <div>Categories</div>
-  )
-}
+import UnderConstruction from "@/components/feedback/UnderConstruction";
 
-export default Categories
+const Categories = () => {
+    return <UnderConstruction />;
+};
+
+export default Categories;

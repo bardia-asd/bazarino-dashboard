@@ -1,5 +1,7 @@
+import UnderConstruction from "@/components/feedback/UnderConstruction";
+
 const Campaigns = () => {
-    return <div>Campaigns</div>;
+    return <UnderConstruction />;
 };
 
 export default Campaigns;

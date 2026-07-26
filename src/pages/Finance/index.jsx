@@ -1,5 +1,7 @@
+import UnderConstruction from "@/components/feedback/UnderConstruction";
+
 const Finance = () => {
-    return <div>Finance</div>;
+    return <UnderConstruction />;
 };
 
 export default Finance;

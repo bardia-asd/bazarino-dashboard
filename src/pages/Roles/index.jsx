@@ -1,5 +1,7 @@
+import UnderConstruction from "@/components/feedback/UnderConstruction";
+
 const Roles = () => {
-    return <div>Roles</div>;
+    return <UnderConstruction />;
 };
 
 export default Roles;

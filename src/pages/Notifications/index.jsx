@@ -1,5 +1,7 @@
+import UnderConstruction from "@/components/feedback/UnderConstruction";
+
 const Notifications = () => {
-    return <div>Notifications</div>;
+    return <UnderConstruction />;
 };
 
 export default Notifications;

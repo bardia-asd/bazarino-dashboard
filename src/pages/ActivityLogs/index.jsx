@@ -1,5 +1,7 @@
+import UnderConstruction from "@/components/feedback/UnderConstruction";
+
 const ActivityLogs = () => {
-    return <div>ActivityLogs</div>;
+    return <UnderConstruction />;
 };
 
 export default ActivityLogs;
